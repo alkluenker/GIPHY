@@ -26,15 +26,14 @@ $("#add-movie").on("click", function(event) {
     
     var newMovie = $("#movie-input").val().trim();
 
-    // Adding movie from the textbox to our array
+    
     topics.push(newMovie);
 
-    // Calling renderButtons which handles the processing of our movie array
+ 
     makeButtons();
   });
 
-  // Adding a click event listener to all elements with a class of "movie-btn"
-  //$(document).on("click", ".movie-btn", displayMovieInfo);
+  
 
 $("#moviebutton").on("click", ".movies", function() {
     
@@ -54,12 +53,16 @@ $("#moviebutton").on("click", ".movies", function() {
 
         $("#viewgifs").empty();
 
-        for (a = 0; a < 10; a++) {
+        for (a = 0; a < response.data.length; a++) {
 
             
             var imgURL = response.data[a].images.fixed_height_still.url;
             
             var animatedImageURL = response.data[a].images.fixed_height.url;
+
+           // var rating = response.data[a].rating;
+
+           var responseOne = response.data;
             
             
             var image = $("<img>").attr("src", imgURL);
@@ -83,13 +86,23 @@ $("#moviebutton").on("click", ".movies", function() {
 
             image.addClass("gifImages");
 
-     
+            image.addClass("col-md-3");
 
             
+            $("#viewgifs").append(p);
             $("#viewgifs").append(image);
             
+            var p = $("<p>").text("Rating: " + responseOne[a].rating);
+
+            //p.addClass("col-md-4");
             
-            
+            console.log(p);
+
+            //rating only show up 9 times; it's missing one of the images???
+
+            //can't get the rating to go above the image
+
+            //how to make the images and rating show up in a nice row and column???? it's showing up weird now
             
             
             

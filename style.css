@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+}
+
+img {
+    margin: 10px;
+    float: left;
+    height: 200px;
+    
+}
+
+button {
+    margin: 5px;
+}
+
+p {
+    color: purple;
+    float: left;
+}
